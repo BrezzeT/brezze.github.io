@@ -1,5 +1,27 @@
 document.addEventListener('DOMContentLoaded', function () {
     const translateBtn = document.querySelector('.translate-btn');
+    const burgerMenu = document.querySelector('.burger-menu');
+    const nav = document.querySelector('.nav-container');
+    burgerMenu.addEventListener('click', function(e) {
+        e.stopPropagation();
+        burgerMenu.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-container a').forEach(link => {
+        link.addEventListener('click', () => {
+            burgerMenu.classList.remove('active');
+            nav.classList.remove('active');
+        });
+    });
+    document.addEventListener('click', function(event) {
+        if (nav.classList.contains('active') && 
+            !nav.contains(event.target) && 
+            !burgerMenu.contains(event.target)) {
+            burgerMenu.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
 
     const translations = {
         'uk': {
