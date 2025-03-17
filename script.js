@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'phone': 'Телефон',
             'social-networks': 'Соціальні мережі',
             'quick-links': 'Швидкі посилання',
-            'copyright': '© 2023 Все права захищені.'
+            'copyright': '© 2025 Все права захищені.'
         },
         'en': {
             'about-me': 'About Me',
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'phone': 'Phone',
             'social-networks': 'Social Networks',
             'quick-links': 'Quick Links',
-            'copyright': '© 2023 All rights reserved.'
+            'copyright': '© 2025 All rights reserved.'
         }
     };
 
