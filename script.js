@@ -25,6 +25,7 @@ const translations = {
     uk: {
         'about-me': 'Про мене',
         'contacts': 'Контакти',
+        'projects': 'Мої проекти',
         'about-me-title': 'Про мене',
         'about-me-text': 'Мене звати Євгеній, мені 20 років. Я студент 3 курсу. Я люблю програмувати і створювати веб-сайти. Я хочу стати програмістом і створювати веб-сайти для людей. Добре комунікую з людьми. Я відповідальний і стараюсь все добре виконувати. Завжди відкритий до нових знань і досвіду.',
         'learning-title': 'Те що я зараз стараюсь вивчити',
@@ -36,11 +37,18 @@ const translations = {
         'phone': 'Телефон',
         'social-networks': 'Соціальні мережі',
         'quick-links': 'Швидкі посилання',
-        'copyright': '© 2025 Все права захищені.'
+        'copyright': '© 2025 Все права захищені.',
+        'projects-title': 'Мої проекти',
+        'calculator-title': 'Калькулятор',
+        'calculator-description': 'Сучасний калькулятор з основними математичними операціями',
+        'anime-site-title': 'Аніме сайт',
+        'anime-site-description': 'Сайт для перегляду аніме з фільтрацією за жанрами та роком випуску',
+        'open-project': 'Відкрити проект'
     },
     en: {
         'about-me': 'About Me',
         'contacts': 'Contacts',
+        'projects': 'My Projects',
         'about-me-title': 'About Me',
         'about-me-text': 'My name is Eugene, I am 20 years old. I am a 3rd year student. I love programming and creating websites. I want to become a programmer and create websites for people. I communicate well with people. I am responsible and try to do everything well. Always open to new knowledge and experience.',
         'learning-title': 'What I am currently learning',
@@ -52,17 +60,23 @@ const translations = {
         'phone': 'Phone',
         'social-networks': 'Social Networks',
         'quick-links': 'Quick Links',
-        'copyright': '© 2025 All rights reserved.'
+        'copyright': '© 2025 All rights reserved.',
+        'projects-title': 'My Projects',
+        'calculator-title': 'Calculator',
+        'calculator-description': 'Modern calculator with basic mathematical operations',
+        'anime-site-title': 'Anime Site',
+        'anime-site-description': 'Website for watching anime with filtering by genre and release year',
+        'open-project': 'Open Project'
     }
 };
 
-
 function translate(lang) {
-    
     document.querySelector('.AboutMe').textContent = translations[lang]['about-me'];
+    document.querySelectorAll('.Projects').forEach(el => {
+        el.textContent = translations[lang]['projects'];
+    });
     document.querySelector('.Contacts').textContent = translations[lang]['contacts'];
 
-    
     document.querySelector('.hero-content h1').textContent = translations[lang]['about-me-title'];
     const paragraphs = document.querySelectorAll('.hero-content p');
     paragraphs[0].textContent = translations[lang]['about-me-text'];
@@ -70,11 +84,24 @@ function translate(lang) {
     
     document.querySelector('.icons h2').textContent = translations[lang]['learning-title'];
 
+    document.querySelector('.my-projects h2').textContent = translations[lang]['projects-title'];
     
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        const title = card.querySelector('h3').textContent;
+        if (title.includes('Калькулятор') || title.includes('Calculator')) {
+            card.querySelector('h3').textContent = translations[lang]['calculator-title'];
+            card.querySelector('p').textContent = translations[lang]['calculator-description'];
+        } else if (title.includes('Anime')) {
+            card.querySelector('h3').textContent = translations[lang]['anime-site-title'];
+            card.querySelector('p').textContent = translations[lang]['anime-site-description'];
+        }
+        card.querySelector('a').textContent = translations[lang]['open-project'];
+    });
+
     document.querySelector('.contacts h2').textContent = translations[lang]['contacts-title'];
     document.querySelector('.contacts-container > p').textContent = translations[lang]['contacts-text'];
 
-    
     const contactLabels = document.querySelectorAll('.contact-form p span');
     contactLabels.forEach(span => {
         if (span.nextElementSibling.href.includes('t.me')) {
@@ -86,7 +113,6 @@ function translate(lang) {
         }
     });
 
-    
     document.querySelectorAll('.footer-section h3').forEach(h3 => {
         if (h3.textContent.includes('Соціальні')) {
             h3.textContent = translations[lang]['social-networks'];
@@ -99,24 +125,36 @@ function translate(lang) {
 
     document.querySelector('.footer-bottom p').textContent = translations[lang]['copyright'];
     
-    
     document.querySelector('.translate-btn').textContent = lang === 'uk' ? 'EN' : 'UA';
 }
 
-
 let currentLang = localStorage.getItem('selectedLanguage') || 'uk';
-
 
 document.addEventListener('DOMContentLoaded', function() {
     translate(currentLang);
 
-    
     document.querySelector('.translate-btn').addEventListener('click', function() {
         currentLang = currentLang === 'uk' ? 'en' : 'uk';
         localStorage.setItem('selectedLanguage', currentLang);
         translate(currentLang);
     });
+
+    const burgerMenu = document.querySelector('.burger-menu');
+    const navContainer = document.querySelector('.nav-container');
+    
+    burgerMenu.addEventListener('click', function() {
+        burgerMenu.classList.toggle('active');
+        navContainer.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-container a').forEach(link => {
+        link.addEventListener('click', () => {
+            burgerMenu.classList.remove('active');
+            navContainer.classList.remove('active');
+        });
+    });
 });
+
 
 
 
