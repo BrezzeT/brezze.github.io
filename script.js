@@ -99,3 +99,27 @@ document.addEventListener('DOMContentLoaded', function () {
         translate(currentLang);
     });
 }); 
+let showSnowBalls = true;
+
+function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.className = 'snowflake';
+    const size = Math.random() * 3 + 2;
+    snowflake.style.width = `${size}px`;
+    snowflake.style.height = `${size}px`;
+    snowflake.style.left = `${Math.random() * 100}%`;
+    const duration = Math.random() * 3 + 3;
+    snowflake.style.animationDuration = `${duration}s`;
+    snowflake.style.animationDelay = `${Math.random() * 2}s`;
+    document.getElementById('snow-animation-container').appendChild(snowflake);
+    setTimeout(() => {
+        snowflake.remove();
+    }, duration * 1000);
+}
+
+setInterval(createSnowflake, 100);
+                  
+for (let i = 0; i < 50; i++) {
+    setTimeout(createSnowflake, Math.random() * 2000);
+}
+
