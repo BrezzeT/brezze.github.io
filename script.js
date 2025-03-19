@@ -43,6 +43,8 @@ const translations = {
         'calculator-description': 'Сучасний калькулятор з основними математичними операціями',
         'anime-site-title': 'Аніме сайт',
         'anime-site-description': 'Сайт для перегляду аніме з фільтрацією за жанрами та роком випуску',
+        'login-register-title': 'Login and Register',
+        'login-register-description': 'Сайт для входу та реєстрації, зроблений за допомогою HTML, CSS та JavaScript',
         'open-project': 'Відкрити проект'
     },
     en: {
@@ -66,6 +68,8 @@ const translations = {
         'calculator-description': 'Modern calculator with basic mathematical operations',
         'anime-site-title': 'Anime Site',
         'anime-site-description': 'Website for watching anime with filtering by genre and release year',
+        'login-register-title': 'Login and Register',
+        'login-register-description': 'Website for login and registration, built with HTML, CSS and JavaScript',
         'open-project': 'Open Project'
     }
 };
@@ -95,6 +99,9 @@ function translate(lang) {
         } else if (title.includes('Anime')) {
             card.querySelector('h3').textContent = translations[lang]['anime-site-title'];
             card.querySelector('p').textContent = translations[lang]['anime-site-description'];
+        } else if (title.includes('Login')) {
+            card.querySelector('h3').textContent = translations[lang]['login-register-title'];
+            card.querySelector('p').textContent = translations[lang]['login-register-description'];
         }
         card.querySelector('a').textContent = translations[lang]['open-project'];
     });

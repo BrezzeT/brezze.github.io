@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="reg.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h1>Register</h1>
+            <div class="form-sup-container">
+                <a href="#"><i class="fab fa-google"></i>Войти с помощью Google</a>
+                <a href="#"><i class="fab fa-facebook-f"></i>Войти с помощью Facebook</a>
+            </div>
+            <div class="form-container">
+                <div class="input-group">
+                    <input type="text" id="username" placeholder=" ">
+                    <label for="username">Username</label>
+                    <span>Please enter a valid username</span>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder=" ">
+                    <label for="password">Password</label>
+                    <span>Password must be at least 6 characters</span>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="confirm-password" placeholder=" ">
+                    <label for="confirm-password">Confirm Password</label>
+                    <span>Passwords do not match</span>
+                </div>
+                <button type="submit">Register</button>
+                <p>Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </div>
+    </main>
+    <script src="reg.js"></script>
+</body>
+</html>
