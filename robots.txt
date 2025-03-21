@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://brezzet.github.io/brezze.github.io/sitemap.xml 
